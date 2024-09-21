@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from '@react-three/fiber'
+import Box from './Box'
+import { Stats } from '@react-three/drei'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Canvas camera={{ position: [0, 2, 3] }}>
+      <Box position={[-1.5, 0.5, 0]} />
+      <Box position={[0, 0.5, 0]}  selected/>
+      <Box position={[1.5, 0.5, 0]} />
+      <axesHelper args={[5]} />
+      <gridHelper />
+      <Stats />
+    </Canvas>
+  )
 }
-
-export default App;
